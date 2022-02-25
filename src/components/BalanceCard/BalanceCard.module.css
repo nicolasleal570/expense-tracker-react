@@ -1,0 +1,26 @@
+.amountContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  color: #fff;
+}
+
+.amountContainer.incomeColor {
+  background-color: var(--accent);
+}
+.amountContainer.expenseColor {
+  background-color: var(--danger);
+}
+
+.label {
+  text-transform: uppercase;
+  margin-bottom: 0.2em;
+  font-size: 0.8em;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1.6em;
+}

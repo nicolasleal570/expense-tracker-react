@@ -1,0 +1,19 @@
+.historyRowTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  font-size: 1em;
+  color: var(--accent2);
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.arrowBtn {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

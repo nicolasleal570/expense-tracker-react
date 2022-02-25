@@ -1,0 +1,13 @@
+h2.appTitle {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 2.6em;
+}
+
+@media (min-width: 640px) {
+  h2.appTitle {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 1.6em;
+  }
+}

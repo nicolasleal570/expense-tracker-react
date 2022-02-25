@@ -1,0 +1,34 @@
+/* ===== GLOBAL STYLES ===== */
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.center-column {
+  max-width: 462px;
+  margin: 0 auto;
+}
+
+/* === TOTAL INFO === */
+.total-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  margin: 4em auto;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .container {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+}

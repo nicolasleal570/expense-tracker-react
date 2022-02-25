@@ -1,0 +1,45 @@
+.card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+  box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.1),
+    0px 10px 10px rgba(0, 0, 0, 0.04);
+  margin-bottom: 1rem;
+}
+
+.firstColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.firstColumn p {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.firstColumn p:nth-child(2) {
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.secondColumn {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid var(--dark);
+  margin-left: 0.6em;
+  padding-left: 0.6em;
+}
+
+.secondColumn p.amount {
+  font-weight: 600;
+}
+.secondColumn p.amount.income {
+  color: var(--accent);
+}
+.secondColumn p.amount.expense {
+  color: var(--danger);
+}
