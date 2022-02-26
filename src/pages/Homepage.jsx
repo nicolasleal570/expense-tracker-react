@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BalanceCard from "../components/BalanceCard";
 import TransactionForm from "../components/NewTransactionForm";
 import HistoryList from "../components/HistoryList";
 import Title from "../components/Title";
 import YourBalance from "../components/YourBalance";
 import { db } from "../utils/firebase-config";
-import { useEffect } from "react/cjs/react.development";
 
 export default function Homepage() {
   const [transactions, setTransactions] = useState([]);
@@ -15,7 +14,10 @@ export default function Homepage() {
   };
 
   const fetchTransactions = () => {
+    // Reference to "transactions" collection
     const transactionsRef = db.collection("transactions");
+
+    // Fetch all transactions from the database
     transactionsRef
       .get()
       .then((data) => {
@@ -26,6 +28,7 @@ export default function Homepage() {
           arr.push({ ...element.data() });
         });
 
+        // Setting up transactions into the state
         setTransactions(arr);
       })
       .catch((error) => {
@@ -33,12 +36,9 @@ export default function Homepage() {
       });
   };
 
+  // Fetch transactions when the component is mount
   useEffect(() => {
-    console.log("PRIMER CONSOLE LOG");
-
     fetchTransactions();
-
-    console.log("TERCER CONSOLE LOG");
   }, []);
 
   return (
