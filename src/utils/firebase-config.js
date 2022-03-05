@@ -18,3 +18,8 @@ const app = firebase.initializeApp(firebaseConfig);
 
 // Database instance
 export const db = app.firestore();
+
+// Authentication instance
+export const auth = app.auth();
+
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
