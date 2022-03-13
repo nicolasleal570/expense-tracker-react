@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { db, auth } from "../utils/firebase-config";
+import { db, auth, googleProvider } from "../utils/firebase-config";
 
 export default function LoginPage() {
   const navigate = useNavigate();

@@ -11,7 +11,7 @@ export default function UserContextProvider({ children }) {
 
     const usersCollection = await usersRef.where("email", "==", email).get();
 
-    const profile = usersCollection[0];
+    const profile = usersCollection.docs[0];
 
     if (!profile) return null;
 
@@ -33,7 +33,7 @@ export default function UserContextProvider({ children }) {
       if (firebaseUser) {
         let profile = await getUserProfile(firebaseUser.email);
 
-        console.log({ profile });
+        console.log({ fullProfile: profile });
 
         if (!profile) {
           profile = {

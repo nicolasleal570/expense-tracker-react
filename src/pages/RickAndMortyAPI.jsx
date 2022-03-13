@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function RickAndMortyAPI() {
   const [characters, setCharacters] = useState([]);
@@ -17,7 +18,7 @@ export default function RickAndMortyAPI() {
 
     try {
       const response = await axios.get(
-        "https://rickandmortyapi.com/api/characterrr"
+        "https://rickandmortyapi.com/api/character"
       );
 
       setCharacters(response.data.results);
@@ -34,8 +35,12 @@ export default function RickAndMortyAPI() {
     <div>
       <ul>
         {characters.map((character) => (
-          <li>
-            <h3>{character.name}</h3>
+          <li key={character.id}>
+            <h3>
+              <Link to={`/rick-and-morty/${character.id}`}>
+                {character.name}
+              </Link>
+            </h3>
           </li>
         ))}
       </ul>

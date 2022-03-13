@@ -1,15 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import BalanceCard from "../components/BalanceCard";
 import TransactionForm from "../components/NewTransactionForm";
 import HistoryList from "../components/HistoryList";
 import Title from "../components/Title";
 import YourBalance from "../components/YourBalance";
 import { db } from "../utils/firebase-config";
+import { UserContext } from "../context/UserContext";
 
 export default function Homepage() {
   const [transactions, setTransactions] = useState([]);
+  const { user } = useContext(UserContext);
 
-  const addNewTransaction = (newTransaction) => {
+  const createTransaction = async (transaction) => {
+    const transactionsRef = db.collection("transactions");
+    await transactionsRef.add({ ...transaction, userId: user.id });
+  };
+
+  const addNewTransaction = async (newTransaction) => {
+    await createTransaction(newTransaction);
     setTransactions([...transactions, newTransaction]);
   };
 
@@ -19,6 +27,7 @@ export default function Homepage() {
 
     // Fetch all transactions from the database
     transactionsRef
+      .where("userId", "==", user.id)
       .get()
       .then((data) => {
         const arr = [];
